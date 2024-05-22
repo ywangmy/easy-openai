@@ -26,7 +26,7 @@ __all__ = ["openai_completions"]
 tiktoken.model.MODEL_TO_ENCODING['ChatGPT'] = tiktoken.model.MODEL_TO_ENCODING['gpt-3.5-turbo']
 # API specific
 DEFAULT_OPENAI_API_BASE = openai.base_url
-OPENAI_API_KEYS = os.environ.get("OPENAI_API_KEYS", os.environ.get("OPENAI_API_KEY", None))
+OPENAI_API_KEYS = os.environ.get("OPENAI_API_KEYS", os.environ.get("OPENAI_API_KEY", os.environ.get("AZURE_OPENAI_API_KEY", None)))
 if isinstance(OPENAI_API_KEYS, str):
     OPENAI_API_KEYS = OPENAI_API_KEYS.split(",")
 OPENAI_ORGANIZATION_IDS = os.environ.get("OPENAI_ORGANIZATION_IDS", None)
